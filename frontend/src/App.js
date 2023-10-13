@@ -1,7 +1,33 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./views/login";
+import { Add } from "./views/add";
+import { Hau } from "./views/hau";
+import { Register } from "./views/register";
+import { Search } from "./views/search";
+import { Workofart } from "./views/workofart";
+import { Layout } from "./Layout";
 
 export default function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/search" element={<Search />} />
+          <Route element={<Layout />}>
+            <Route path="/add" element={<Add />} />
+            <Route path="/hau" element={<Hau />} />
+            <Route path="/workofart" element={<Workofart />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+/*export default function App() {
   const [artData, setArtData] = useState([]);
 
   useEffect(() => {
@@ -33,4 +59,4 @@ export default function App() {
       </ul>
     </div>
   );
-}
+}*/

@@ -8,8 +8,14 @@ People from all over the world can search works of art such as paintings, sculpt
 
 ## Website presentation
 
-![Alt text](/frontend/img/website2.png)
+![Alt text](/frontend/src/assets/website2.png)
 
-![Alt text](/frontend/img/website.png)
+![Alt text](/frontend/src/assets/website.png)
 
-![Alt text](/frontend/img/website3.png)
+![Alt text](/frontend/src/assets/website3.png)
+
+## Tech stack
+
+- React
+- Spring
+- PostreSQL

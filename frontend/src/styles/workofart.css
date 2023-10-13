@@ -1,0 +1,44 @@
+.object {
+    width: 33%;
+    text-align: center;
+}
+
+.object img {
+    min-width: 80%;
+    border-radius: 56px;
+}
+
+.object:nth-child(2) {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@media only screen and (max-device-width: 430px) {
+
+    .content-workofart {
+        height: 90vh;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .content-workofart .object {
+        width: 100%;
+        margin: 3em 0 3em 0;
+    }
+    
+    .content-workofart p {
+        padding: 0 1em 0 1em;
+        text-align: center;
+    }
+
+    .content-workofart img {
+        min-width: 80%;
+    }
+
+    .object:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+    }
+}

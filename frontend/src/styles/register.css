@@ -1,0 +1,9 @@
+#register {
+  height: 60vh;
+}
+
+@media only screen and (max-device-width: 430px) {
+  #register {
+    height: 45vh;
+  }
+}

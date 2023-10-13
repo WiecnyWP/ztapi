@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  background: #1d1b1b 0% 0% no-repeat padding-box;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.navigation {
+  display: flex;
+  height: 10vh;
+  outline: solid 0.2em #fa4238;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 10vh;
+}
+
+a {
+  font: 2em Segoe UI;
+  text-decoration: none;
+  color: #fa4238;
+}
+
+a:hover {
+  color: #db231a;
+}
+
+button {
+  background: #fa4238 0% 0% no-repeat padding-box;
+  border: none;
+  border-radius: 17px;
+  text-align: center;
+  font: 2em Segoe UI;
+  letter-spacing: 0px;
+  color: #1d1b1b;
+  width: 55%;
+  line-height: 1.7em;
+}
+
+img {
+  max-width: 50%;
+}
+
+.content {
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+  width: 50%;
+}
+
+.logo {
+  width: 50%;
+  text-align: center;
+}
+
+p {
+  font: 2em Segoe UI;
+  color: #fa4238;
+}
+
+.logo > img {
+  max-width: 80%;
+}
+
+.navigation-mobile {
+  display: none;
+}
+
+.container-add {
+  text-align: center;
+}
+
+.warning {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+@media only screen and (max-device-width: 430px) {
+  .content {
+    flex-direction: column-reverse;
+  }
+
+  .text {
+    width: 80%;
+    height: 50%;
+  }
+
+  .logo img {
+    max-width: 120%;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+  }
+
+  p {
+    font: 1.3em Segoe UI;
+    color: #fa4238;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .navigation-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    height: 10vh;
+    outline: solid 0.2em #fa4238;
+  }
+
+  i {
+    color: #fa4238;
+    font-size: 2.5em;
+  }
+}
