@@ -13,26 +13,26 @@ import Hau from "../assets/hau.png";
 export const Header = () => {
   return (
     <header>
-      <div class="navigation">
+      <div className="navigation">
         <Link to={"hau"}>
-          <div class="item">
+          <div className="item">
             <img src={Hau} />
           </div>
         </Link>
-        <div class="item">
+        <div className="item">
           <Link to={"workofart"}>Work of art</Link>
         </div>
-        <div class="item">
+        <div className="item">
           <Link to={"search"}>Search</Link>
         </div>
-        <div class="item">
+        <div className="item">
           <Link to={"add"}>Add</Link>
         </div>
-        <div class="item">
+        <div className="item">
           <button id="logout">Logout</button>
         </div>
       </div>
-      <div class="navigation-mobile">
+      <div className="navigation-mobile">
         <div className="item">
           <a href="hau">
             <FontAwesomeIcon icon={faH} />

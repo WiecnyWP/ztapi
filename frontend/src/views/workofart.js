@@ -9,38 +9,38 @@ export const Workofart = () => {
   return (
     <>
       {/* <?php if(!isset($_COOKIE["id_user"])){ header("Location: login"); } ?> */}
-      <div class="content-workofart content">
-        <div class="object">
-          <div class="describe">
+      <div className="content-workofart content">
+        <div className="object">
+          <div className="describe">
             <p>
               Sculpture, an artistic form in which hard materials are worked
               into three-dimensional art objects.
             </p>
           </div>
-          <div class="photo">
+          <div className="photo">
             <img src={Sculpture} />
           </div>
         </div>
-        <div class="object">
-          <div class="describe">
+        <div className="object">
+          <div className="describe">
             <p>
               Painting, the expression of ideas and emotions, with the creation
               of certain aesthetic qualities, in a two-dimensional visual
               language.
             </p>
           </div>
-          <div class="photo">
+          <div className="photo">
             <img src={Painting} />
           </div>
         </div>
-        <div class="object">
-          <div class="describe">
+        <div className="object">
+          <div className="describe">
             <p>
               Antique, a relic or old object having aesthetic, historic, and
               financial value.
             </p>
           </div>
-          <div class="photo">
+          <div className="photo">
             <img src={Car} />
           </div>
         </div>

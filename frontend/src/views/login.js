@@ -7,7 +7,7 @@ export const Login = () => {
     <>
       <div className="container">
         <div className="login-container">
-          <form class="login" action="login" method="POST">
+          <form className="login" action="login" method="POST">
             <div className="messages">
               {/* <?php if(isset($messages)) {
                         foreach ($messages as $message){

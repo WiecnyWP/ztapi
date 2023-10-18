@@ -30,13 +30,13 @@ export const Add = () => {
               <button type="submit">Add</button>
             </form>
           </div>
-          <div class="logo">
+          <div className="logo">
             <img src={Logo} />
           </div>
         </div>
         {/* <?php else :?>
-            <div class="not-admin">
-                <p class="warning">Only administrator can add art!</p>
+            <div className="not-admin">
+                <p className="warning">Only administrator can add art!</p>
                 <img src="public/img/unhappy.png">
             </div>
         <?php endif; ?> */}
