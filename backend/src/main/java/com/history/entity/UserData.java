@@ -1,6 +1,5 @@
 package com.history.entity;
 
-import com.history.entity.enums.ArtType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,21 +12,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Art {
+public class UserData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Column
-    private ArtType artType;
-
-    @Column(unique = true)
-    private String artName;
+    private String name;
 
     @Column
-    private String city;
+    private String surname;
 
-    @Column
-    private String image;
 }
