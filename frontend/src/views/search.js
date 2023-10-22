@@ -6,15 +6,24 @@ import { faH, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "../styles/hau.css";
 import "../styles/search.css";
 import { SearchItem } from "../components/SearchItem";
-import { useFetch } from "../utils";
+import { useFetch } from "../utils/useFetch";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/authProvider";
 
 export const Search = () => {
-  const { data, error, loading } = useFetch(
-    "http://localhost:8080/api/art/getAll"
-  );
+  const navigate = useNavigate();
+  const { auth } = useAuth();
+  useEffect(() => {
+    if (!auth) {
+      navigate("/");
+    }
+  }, [auth]);
+
+  const { data, error, loading } = useFetch({
+    url: "http://localhost:8080/api/art/getAll",
+  });
   const [search, setSearch] = useState("");
 
-  console.log(data);
   return (
     <>
       <div className="search-container">

@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../assets/logo.svg";
 import "../styles/hau.css";
 import "../styles/style.css";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/authProvider";
 
 export const Add = () => {
+  const navigate = useNavigate();
+  const { auth } = useAuth();
+  useEffect(() => {
+    if (!auth) {
+      navigate("/");
+    }
+  }, [auth]);
   return (
     <>
       {/* <?php if(!isset($_COOKIE["id_user"])){ header("Location: login"); } ?> */}

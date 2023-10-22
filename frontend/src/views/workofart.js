@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sculpture from "../assets/sculpture.jpg";
 import Painting from "../assets/painting.jpg";
 import Car from "../assets/car.jpg";
 import "../styles/hau.css";
 import "../styles/workofart.css";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/authProvider";
 
 export const Workofart = () => {
+  const navigate = useNavigate();
+  const { auth } = useAuth();
+  useEffect(() => {
+    if (!auth) {
+      navigate("/");
+    }
+  }, [auth]);
+
   return (
     <>
       {/* <?php if(!isset($_COOKIE["id_user"])){ header("Location: login"); } ?> */}

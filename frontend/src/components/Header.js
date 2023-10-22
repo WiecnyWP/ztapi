@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,8 +9,19 @@ import {
   faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import Hau from "../assets/hau.png";
+import { useAuth } from "../utils/authProvider";
+import { useNavigate } from "react-router-dom";
+import { setAuthToken } from "../utils/setTokenToAxios";
 
 export const Header = () => {
+  const navigation = useNavigate();
+  const { setAuth } = useAuth();
+  const logOut = () => {
+    setAuth(false);
+    setAuthToken(false);
+    // navigation("/");
+  };
+
   return (
     <header>
       <div className="navigation">
@@ -29,7 +40,9 @@ export const Header = () => {
           <Link to={"add"}>Add</Link>
         </div>
         <div className="item">
-          <button id="logout">Logout</button>
+          <button onClick={() => logOut()} id="logout">
+            Logout
+          </button>
         </div>
       </div>
       <div className="navigation-mobile">
@@ -53,7 +66,7 @@ export const Header = () => {
             <FontAwesomeIcon icon={faPlus} />
           </a>
         </div>
-        <div className="item">
+        <div className="item" onClick={() => logOut()}>
           <a id="logoutMobile">
             <FontAwesomeIcon icon={faArrowRightFromBracket} />
           </a>

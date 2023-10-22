@@ -1,19 +1,58 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Logo from "../assets/logo.svg";
 import "../styles/style.css";
 import "../styles/register.css";
+import axios from "axios";
+import { useAuth } from "../utils/authProvider";
+import { useNavigate } from "react-router-dom";
+import { useFetch } from "../utils/useFetch";
 
 export const Register = () => {
+  const navigate = useNavigate();
+  const { setAuth } = useAuth();
+  const [error, setError] = useState(false);
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    const inputs = Array.from(e.target.querySelectorAll("input"));
+
+    let object = {};
+    let isObjectFull = false;
+    inputs.forEach((e) => {
+      if (e.value !== "") {
+        object[e.name] = e.value;
+        isObjectFull = true;
+      } else {
+        isObjectFull = false;
+      }
+    });
+
+    const passwordMatch = object.password === object.confirmedPassword;
+
+    if (isObjectFull && passwordMatch) {
+      setError(false);
+
+      axios({
+        method: "post",
+        url: "http://localhost:8080/api/auth/register",
+        data: object,
+      }).then(function (response) {
+        setAuth(response.data.token);
+        navigate("/");
+      });
+    } else {
+      setError(
+        !isObjectFull ? "all field are required" : "password should match"
+      );
+    }
+  };
+
   return (
     <>
       <div className="container">
         <div className="login-container">
-          <form
-            id="register"
-            action="registerAdd"
-            method="POST"
-            ENCTYPE="multipart/form-data"
-          >
+          <form onSubmit={submitForm} id="register">
+            {error && <h1>{error}</h1>}
             {/* <?php if(isset($messages)) {
                     foreach ($messages as $message){
                         echo $message;
