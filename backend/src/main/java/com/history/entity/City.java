@@ -1,13 +1,10 @@
 package com.history.entity;
 
-import com.history.entity.enums.ArtType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Table
 @Entity
@@ -15,24 +12,18 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Art {
+public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column
-    private ArtType artType;
-
-    @Column(unique = true)
-    private String artName;
+    @Column(nullable = false)
+    private String cityName;
 
     @Column
-    private String image;
+    private String zipCode;
 
-    @ManyToOne
-    private City city;
-
-    @OneToMany(mappedBy = "art")
-    private Set<Rate> rates;
+    @Column
+    private String country;
 }

@@ -47,24 +47,24 @@ export const Header = () => {
       </div>
       <div className="navigation-mobile">
         <div className="item">
-          <a href="hau">
+          <Link to={"hau"}>
             <FontAwesomeIcon icon={faH} />
-          </a>
+          </Link>
         </div>
         <div className="item">
-          <a href="workofart">
+          <Link to={"workofart"}>
             <FontAwesomeIcon icon={faPaintbrush} />
-          </a>
+          </Link>
         </div>
         <div className="item">
-          <a href="search">
+          <Link to={"search"}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </a>
+          </Link>
         </div>
         <div className="item">
-          <a href="add">
+          <Link to={"add"}>
             <FontAwesomeIcon icon={faPlus} />
-          </a>
+          </Link>
         </div>
         <div className="item" onClick={() => logOut()}>
           <a id="logoutMobile">

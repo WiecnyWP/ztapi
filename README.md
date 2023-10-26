@@ -18,4 +18,4 @@ People from all over the world can search works of art such as paintings, sculpt
 
 - React
 - Spring
-- PostreSQL
+- PostgreSQL

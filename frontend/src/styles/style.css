@@ -14,10 +14,11 @@ body {
 
 .login-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50%;
+  gap: 50px;
 }
 
 .login-container input {
@@ -37,12 +38,14 @@ body {
 }
 
 .login-container form {
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 60%;
-  height: 50vh;
+  padding: 50px 0 50px 0;
+  /* height: 50vh; */
   background: #3e3838 0% 0% no-repeat padding-box;
   box-shadow: inset 0px 6px 6px #00000029;
   border-radius: 56px;

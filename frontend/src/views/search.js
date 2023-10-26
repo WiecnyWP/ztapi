@@ -46,9 +46,9 @@ export const Search = () => {
         </div>
         <div className="navigation-mobile">
           <div className="item">
-            <a href="hau">
+            <Link to={"/hau"}>
               <FontAwesomeIcon icon={faH} />
-            </a>
+            </Link>
           </div>
           <div className="search">
             <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} />
@@ -78,14 +78,16 @@ export const Search = () => {
                   }
                 }
               })
-              .map((data) => (
-                <SearchItem
-                  imgSrc={data.image}
-                  text1={data.artType}
-                  text2={data.artName}
-                  text3={data.city}
-                />
-              ))}
+              .map((data) => {
+                return (
+                  <SearchItem
+                    imgSrc={data.image}
+                    text1={data.artType}
+                    text2={data.artName}
+                    city={data.city}
+                  />
+                );
+              })}
         </section>
       </div>
     </>

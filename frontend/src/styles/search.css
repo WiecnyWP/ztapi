@@ -59,6 +59,23 @@ section {
 
 .description {
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.description p {
+  margin: 0;
+}
+
+.description span {
+  margin: auto;
+}
+.description span > span > span:last-child {
+  margin: auto;
 }
 
 .star-wrapper {

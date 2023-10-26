@@ -28,5 +28,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getUserByName(String username) {
+        return userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("User not found in database"));
+    }
 }
 
