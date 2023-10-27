@@ -72,7 +72,7 @@ export const Search = () => {
                   if (
                     e.artName.toLowerCase().includes(searchToLowerCase) ||
                     e.artType.toLowerCase().includes(searchToLowerCase) ||
-                    e.city.toLowerCase().includes(searchToLowerCase)
+                    e.city.cityName.toLowerCase().includes(searchToLowerCase)
                   ) {
                     return e;
                   }

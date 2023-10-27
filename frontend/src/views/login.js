@@ -46,10 +46,12 @@ export const Login = () => {
           navigate("/workofart");
         })
         .catch((err) => {
-          if (err.response.status === 403) setError("incorrect password");
+          if (err.response.status === 403) setError("Incorrect credentials");
         });
     } else {
-      setError(!isObjectFull ? "all field are required" : "incorrect password");
+      setError(
+        !isObjectFull ? "All fields are required" : "Incorrect credentials"
+      );
     }
   };
 

@@ -42,7 +42,7 @@ export const Register = () => {
       });
     } else {
       setError(
-        !isObjectFull ? "all field are required" : "password should match"
+        !isObjectFull ? "All fields are required" : "Password should match"
       );
     }
   };

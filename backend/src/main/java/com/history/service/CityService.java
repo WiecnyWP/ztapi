@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-//https://mui.com/material-ui/react-autocomplete/
+
 @Service
 @RequiredArgsConstructor
 public class CityService {
