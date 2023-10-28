@@ -1,23 +1,31 @@
--- CITY table
-INSERT INTO CITY (ID, CITY_NAME, ZIP_CODE, COUNTRY)
-VALUES (1, 'Krakow', '31-155', 'Poland');
+INSERT INTO public.city (id, city_name, country, zip_code)
+VALUES
+    (1, 'Florence', NULL, NULL),
+    (2, 'Warsaw', NULL, NULL),
+    (3, 'New York', NULL, NULL),
+    (4, 'Berlin', NULL, NULL);
 
--- ART table
-INSERT INTO ART (ID, ART_TYPE, ART_NAME, IMAGE, CITY_ID)
-VALUES (1, 0, 'Michelangelo', '/assets/car.jpg', 1),
-       (2, 1, 'Starry Night', '/assets/car.jpg', 1),
-       (3, 0, 'Mercedes 770', '/assets/cat.jpg', 1),
-       (4, 1, 'Statue of Liberty', '/assets/cat.jpg', 1),
-       (5, 2, 'Independent Cat', '/assets/car.jpg', 1);
+INSERT INTO public.art (art_type, city_id, id, art_name, image)
+VALUES
+    (1, 1, 1, 'Michaelangelo', '/assets/angel.jpg'),
+    (1, 2, 2, 'Independent Cat', '/assets/cat.jpg'),
+    (1, 3, 3, 'Statue of Liberty', '/assets/statue.jpg'),
+    (2, 4, 4, 'Mercedes 770', '/assets/mercedes.jpeg'),
+    (0, 3, 5, 'Starry Night', '/assets/starrynight.jpg'),
+    (0, 2, 6, 'Battle of Grunwald', '/assets/war.jpg');
 
--- USERS table
-INSERT INTO USERS (ID, NAME, SURNAME, USERNAME, PASSWORD)
-VALUES (1, 'John', 'Doe', 'johndoe', 'hashed_password1'),
-       (2, 'Alice', 'Johnson', 'alicejohnson', 'hashed_password2'),
-       (3, 'Bob', 'Smith', 'bobsmith', 'hashed_password3'),
-       (4, 'Sarah', 'Miller', 'sarahmiller', 'hashed_password4'),
-       (5, 'Michael', 'Brown', 'michaelbrown', 'hashed_password5');
+INSERT INTO public.user_data (id, name, surname)
+VALUES
+    (1, 'admin', 'admin'),
+    (2, 'user', 'user');
 
--- RATE table
-INSERT INTO RATE (USER_ID, ART_ID, RATE)
-VALUES (1, 1, 4);
+INSERT INTO public.users (id, user_data_id, password, user_role, username)
+VALUES
+    (1, 1, '$2a$10$Yu7F0hSS7U6jFEwo1m1C5eoYN5ffgbkc6BqFNwAWtROVEWXAfZJ62', 'ADMIN', 'admin'),
+    (2, 2, '$2a$10$XlOqBrub3rgoMZ.1ENjibOoAMwmPfUeZQDPg2pIeNkeznPkVtJM2C', 'USER', 'user');
+
+INSERT INTO public.rate (art_id, rate, users_id)
+VALUES
+    (1, 4, 1),
+    (2, 3, 1),
+    (4, 5, 2);

@@ -19,7 +19,22 @@ People from all over the world can search works of art such as paintings, sculpt
 - React
 - Spring
 - PostgreSQL
+- Docker
 
 ## ERD
 
 ![Alt text](/frontend/src/assets/erd.png)
+
+## PostgreSQL
+
+Creating dump
+
+```
+docker exec -t db-container pg_dumpall -c -U postgres > dump.sql
+```
+
+Restore
+
+```
+cat dump.sql | docker exec -i db-container psql -U postgres
+```
