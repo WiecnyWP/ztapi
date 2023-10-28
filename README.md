@@ -19,3 +19,7 @@ People from all over the world can search works of art such as paintings, sculpt
 - React
 - Spring
 - PostgreSQL
+
+## ERD
+
+![Alt text](/frontend/src/assets/erd.png)
