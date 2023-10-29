@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class UserData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column

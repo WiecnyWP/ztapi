@@ -17,7 +17,7 @@ export const Header = () => {
   const navigation = useNavigate();
   const { setAuth } = useAuth();
   const logOut = () => {
-    setAuth(false);
+    setAuth(null);
     setAuthToken(false);
     // navigation("/");
   };

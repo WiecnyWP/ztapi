@@ -12,7 +12,7 @@ import { useAuth } from "./utils/authProvider";
 import { setAuthToken } from "./utils/setTokenToAxios";
 
 export default function App() {
-  const { auth, setAuth } = useAuth();
+  const { auth } = useAuth();
 
   useEffect(() => {
     if (auth) {

@@ -33,8 +33,7 @@ export const Add = () => {
         method: "get",
         url: "http://localhost:8080/api/city/getAll",
       }).then((res) => {
-        const onlyCities = res.data.map((e) => e.cityName);
-        setCities(onlyCities);
+        setCities(res.data);
       });
     }
   }, [auth]);
@@ -146,7 +145,12 @@ const AdminContent = ({ cities }) => {
           <input name="type" type="text" placeholder="type" />
           <input name="name" type="text" placeholder="name" />
           <select name="cars" id="cars">
-            {cities && cities.map((e) => <option value={e}>{e}</option>)}
+            {cities &&
+              cities.map((e) => (
+                <option key={e.cityName} value={e}>
+                  {e.cityName}
+                </option>
+              ))}
           </select>
           <input name="file" type="file" placeholder="image" />
           <button type="submit">Add</button>

@@ -42,6 +42,7 @@ export const Login = () => {
         data: object,
       })
         .then(function (response) {
+          console.log(response);
           setAuth(response.data.token);
           navigate("/workofart");
         })

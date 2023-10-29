@@ -9,13 +9,29 @@ import { SearchItem } from "../components/SearchItem";
 import { useFetch } from "../utils/useFetch";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/authProvider";
+import { setAuthToken } from "../utils/setTokenToAxios";
+import axios from "axios";
 
 export const Search = () => {
   const navigate = useNavigate();
   const { auth } = useAuth();
+  const [userId, setUserId] = useState(null);
   useEffect(() => {
     if (!auth) {
       navigate("/");
+    } else {
+      setAuthToken(auth);
+      axios({
+        method: "get",
+        url: "http://localhost:8080/api/users/getCurrentUserInfo",
+      })
+        .then(function (response) {
+          console.log(response.data.userData.id);
+          setUserId(response.data.userData.id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }, [auth]);
 
@@ -81,10 +97,13 @@ export const Search = () => {
               .map((data) => {
                 return (
                   <SearchItem
+                    key={data.id}
                     imgSrc={data.image}
                     text1={data.artType}
                     text2={data.artName}
                     city={data.city}
+                    userId={userId}
+                    artId={data.id}
                   />
                 );
               })}
