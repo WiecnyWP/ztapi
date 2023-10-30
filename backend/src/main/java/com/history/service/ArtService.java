@@ -23,7 +23,7 @@ import java.util.Objects;
 public class ArtService {
 
     private final ArtRepository artRepository;
-    private final String uploadDirectory = "uploads/arts";
+    private final String uploadDirectory = "uploads/arts/";
     private final RateService rateService;
 
     public ArtWithImageResponseDTO add(ArtWithImageSaveDTO artDto) throws IOException {
@@ -36,25 +36,23 @@ public class ArtService {
                 .artType(artDto.getArtType())
                 .city(artDto.getCity())
                 .build();
-        Art savedArt = artRepository.save(art);
+//        Art savedArt = artRepository.save(art);
 
-        MultipartFile image = artDto.getImage();
-        String originalFileName = Objects.requireNonNull(image.getOriginalFilename());
-        String filePath = uploadDirectory + originalFileName;
+        byte[] imageBytes = artDto.getImage();
+        String fileName = artDto.getArtName();
+        String filePath = uploadDirectory + fileName + "." + artDto.getFileExtension();
 
         File existingFile = new File(filePath);
         if (existingFile.exists()) {
             existingFile.delete();
         }
 
-        byte[] imageBytes = image.getBytes();
-
         try (OutputStream stream = new FileOutputStream(filePath)) {
             stream.write(imageBytes);
         }
 
-        savedArt.setImage(filePath);
-        savedArt = artRepository.save(savedArt);
+        art.setImage(filePath);
+        Art savedArt = artRepository.save(art);
 
         return ArtWithImageResponseDTO.builder()
                 .artName(savedArt.getArtName())

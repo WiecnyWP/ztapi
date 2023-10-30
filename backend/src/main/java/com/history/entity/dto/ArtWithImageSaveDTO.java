@@ -17,5 +17,6 @@ public class ArtWithImageSaveDTO {
     private ArtType artType;
     private String artName;
     private City city;
-    private MultipartFile image;
+    private byte[] image;
+    private String fileExtension;
 }

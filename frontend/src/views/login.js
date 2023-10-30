@@ -5,6 +5,7 @@ import axios from "axios";
 import { useAuth } from "../utils/authProvider";
 import { useNavigate } from "react-router-dom";
 import { setAuthToken } from "../utils/setTokenToAxios";
+import { Form } from "../components/Form";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -18,68 +19,42 @@ export const Login = () => {
     }
   }, [auth]);
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    const inputs = Array.from(e.target.querySelectorAll("input"));
+  const submitForm = (data) => {
+    setError(false);
 
-    let object = {};
-    let isObjectFull = false;
-    inputs.forEach((e) => {
-      if (e.value !== "") {
-        object[e.name] = e.value;
-        isObjectFull = true;
-      } else {
-        isObjectFull = false;
-      }
-    });
-
-    if (isObjectFull) {
-      setError(false);
-
-      axios({
-        method: "post",
-        url: "http://localhost:8080/api/auth/authenticate",
-        data: object,
+    axios({
+      method: "post",
+      url: "http://localhost:8080/api/auth/authenticate",
+      data: data,
+    })
+      .then((response) => {
+        setAuth(response.data.token);
+        navigate("/workofart");
       })
-        .then(function (response) {
-          console.log(response);
-          setAuth(response.data.token);
-          navigate("/workofart");
-        })
-        .catch((err) => {
-          if (err.response.status === 403) setError("Incorrect credentials");
-        });
-    } else {
-      setError(
-        !isObjectFull ? "All fields are required" : "Incorrect credentials"
-      );
-    }
+      .catch((err) => {
+        if (err.response.status === 403) setError("Incorrect credentials");
+      });
   };
 
   return (
     <>
       <div className="container">
         <div className="login-container">
-          <form
-            onSubmit={submitForm}
-            className="login"
-            action="login"
-            method="POST"
-          >
-            <div className="messages">
-              {error && error}
-              {/* <?php if(isset($messages)) {
-                        foreach ($messages as $message){
-                            echo $message;
-                        }
-                    }
-                    ?> */}
-            </div>
-            <input name="username" type="text" placeholder="username" />
-            <input name="password" type="password" placeholder="password" />
+          <Form submit={submitForm} className="login" error={error}>
+            <input
+              required
+              name="username"
+              type="text"
+              placeholder="username"
+            />
+            <input
+              required
+              name="password"
+              type="password"
+              placeholder="password"
+            />
             <a href="register">not started? click here to register</a>
-            <button type="submit">Login</button>
-          </form>
+          </Form>
         </div>
         <div className="logo">
           <img src={Logo} />

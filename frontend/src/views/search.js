@@ -26,7 +26,6 @@ export const Search = () => {
         url: "http://localhost:8080/api/users/getCurrentUserInfo",
       })
         .then(function (response) {
-          console.log(response.data.userData.id);
           setUserId(response.data.userData.id);
         })
         .catch((err) => {
@@ -35,8 +34,8 @@ export const Search = () => {
     }
   }, [auth]);
 
-  const { data, error, loading } = useFetch({
-    url: "http://localhost:8080/api/art/getAll",
+  const { data, loading } = useFetch({
+    url: "http://localhost:8080/api/art/getAllWithImage",
   });
   const [search, setSearch] = useState("");
 
@@ -97,6 +96,7 @@ export const Search = () => {
               .map((data) => {
                 return (
                   <SearchItem
+                    averageRate={data.averageRating}
                     key={data.id}
                     imgSrc={data.image}
                     text1={data.artType}
