@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,16 +10,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Hau from "../assets/hau.png";
 import { useAuth } from "../utils/authProvider";
-import { useNavigate } from "react-router-dom";
 import { setAuthToken } from "../utils/setTokenToAxios";
 
 export const Header = () => {
-  const navigation = useNavigate();
   const { setAuth } = useAuth();
   const logOut = () => {
     setAuth(null);
     setAuthToken(false);
-    // navigation("/");
   };
 
   return (

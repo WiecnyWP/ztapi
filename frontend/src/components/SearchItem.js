@@ -14,26 +14,32 @@ export const SearchItem = ({
   averageRate,
 }) => {
   const [initialRate, setInitialRate] = useState(0);
+  const [averageRateState, setAverageRateState] = useState(averageRate);
   const { auth } = useAuth();
-  const handleRating = (e) => {
+  const handleRating = async (e) => {
     setInitialRate(e);
 
     setAuthToken(auth);
-    axios({
-      method: "post",
-      url: "http://localhost:8080/api/rate/add",
-      data: {
-        userId: userId,
-        artId: artId,
-        rate: e,
-      },
-    })
-      .then(function (response) {
-        // console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
+    try {
+      await axios({
+        method: "post",
+        url: "http://localhost:8080/api/rate/add",
+        data: {
+          userId: userId,
+          artId: artId,
+          rate: e,
+        },
       });
+
+      const responseRating = await axios({
+        method: "get",
+        url: "http://localhost:8080/api/art/getAllWithImage",
+      });
+      const correctArt = responseRating.data.find((e) => e.id === artId);
+      setAverageRateState(correctArt.averageRating);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -43,7 +49,7 @@ export const SearchItem = ({
         <p>{text1?.charAt(0).toUpperCase() + text1?.slice(1).toLowerCase()}</p>
         <p>{text2}</p>
         <p>{city.cityName}</p>
-        <p>{averageRate}</p>
+        <p>{averageRateState.toFixed(2)}</p>
         <Rating initialValue={initialRate} onClick={handleRating} />
       </div>
     </div>

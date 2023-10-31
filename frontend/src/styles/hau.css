@@ -90,6 +90,9 @@ p {
 }
 
 @media only screen and (max-device-width: 430px) {
+  #formCity {
+    margin-top: 150px;
+  }
   .content {
     flex-direction: column-reverse;
   }

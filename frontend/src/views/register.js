@@ -31,36 +31,29 @@ export const Register = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="login-container">
-          <Form error={error} submit={submitForm} id="register">
-            <input required name="name" type="text" placeholder="name" />
-            <input required name="surname" type="text" placeholder="surname" />
-            <input
-              required
-              name="username"
-              type="text"
-              placeholder="username"
-            />
-            <input
-              required
-              name="password"
-              type="password"
-              placeholder="password"
-            />
-            <input
-              required
-              name="confirmedPassword"
-              type="password"
-              placeholder="password"
-            />
-          </Form>
-        </div>
-        <div className="logo">
-          <img src={Logo} />
-        </div>
+    <div className="container">
+      <div className="login-container">
+        <Form error={error} submit={submitForm} id="register">
+          <input required name="name" type="text" placeholder="name" />
+          <input required name="surname" type="text" placeholder="surname" />
+          <input required name="username" type="text" placeholder="username" />
+          <input
+            required
+            name="password"
+            type="password"
+            placeholder="password"
+          />
+          <input
+            required
+            name="confirmedPassword"
+            type="password"
+            placeholder="password"
+          />
+        </Form>
       </div>
-    </>
+      <div className="logo">
+        <img src={Logo} />
+      </div>
+    </div>
   );
 };

@@ -18,28 +18,25 @@ export const Workofart = () => {
   }, [auth]);
 
   return (
-    <>
-      {/* <?php if(!isset($_COOKIE["id_user"])){ header("Location: login"); } ?> */}
-      <div className="content-workofart content">
-        <WorkofartItem
-          description={
-            "Sculpture, an artistic form in which hard materials are worked into three-dimensional art objects."
-          }
-          imgSrc={Sculpture}
-        />
-        <WorkofartItem
-          description={
-            "Painting, the expression of ideas and emotions, with the creation of certain aesthetic qualities, in a two-dimensional visual language."
-          }
-          imgSrc={Painting}
-        />
-        <WorkofartItem
-          description={
-            "Antique, a relic or old object having aesthetic, historic, and financial value."
-          }
-          imgSrc={Car}
-        />
-      </div>
-    </>
+    <div className="content-workofart content">
+      <WorkofartItem
+        description={
+          "Sculpture, an artistic form in which hard materials are worked into three-dimensional art objects."
+        }
+        imgSrc={Sculpture}
+      />
+      <WorkofartItem
+        description={
+          "Painting, the expression of ideas and emotions, with the creation of certain aesthetic qualities, in a two-dimensional visual language."
+        }
+        imgSrc={Painting}
+      />
+      <WorkofartItem
+        description={
+          "Antique, a relic or old object having aesthetic, historic, and financial value."
+        }
+        imgSrc={Car}
+      />
+    </div>
   );
 };

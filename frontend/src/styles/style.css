@@ -21,7 +21,8 @@ body {
   gap: 50px;
 }
 
-.login-container input {
+.login-container input,
+.login-container select {
   color: #fa4238;
   background-color: transparent;
   border: none;

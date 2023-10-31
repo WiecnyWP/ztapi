@@ -15,7 +15,7 @@ export const Login = () => {
   useEffect(() => {
     if (auth) {
       setAuthToken(auth);
-      navigate("/workofart");
+      navigate("/hau");
     }
   }, [auth]);
 
@@ -29,7 +29,7 @@ export const Login = () => {
     })
       .then((response) => {
         setAuth(response.data.token);
-        navigate("/workofart");
+        navigate("/hau");
       })
       .catch((err) => {
         if (err.response.status === 403) setError("Incorrect credentials");
@@ -37,29 +37,22 @@ export const Login = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="login-container">
-          <Form submit={submitForm} className="login" error={error}>
-            <input
-              required
-              name="username"
-              type="text"
-              placeholder="username"
-            />
-            <input
-              required
-              name="password"
-              type="password"
-              placeholder="password"
-            />
-            <a href="register">not started? click here to register</a>
-          </Form>
-        </div>
-        <div className="logo">
-          <img src={Logo} />
-        </div>
+    <div className="container">
+      <div className="login-container">
+        <Form submit={submitForm} className="login" error={error}>
+          <input required name="username" type="text" placeholder="username" />
+          <input
+            required
+            name="password"
+            type="password"
+            placeholder="password"
+          />
+          <a href="register">not started? click here to register</a>
+        </Form>
       </div>
-    </>
+      <div className="logo">
+        <img src={Logo} />
+      </div>
+    </div>
   );
 };
