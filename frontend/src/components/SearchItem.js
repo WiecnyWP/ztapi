@@ -23,7 +23,7 @@ export const SearchItem = ({
     try {
       await axios({
         method: "post",
-        url: "http://localhost:8080/api/rate/add",
+        url: "http://localhost:8080/api/rate/",
         data: {
           userId: userId,
           artId: artId,
@@ -33,7 +33,7 @@ export const SearchItem = ({
 
       const responseRating = await axios({
         method: "get",
-        url: "http://localhost:8080/api/art/getAllWithImage",
+        url: "http://localhost:8080/api/art/WithImage",
       });
       const correctArt = responseRating.data.find((e) => e.id === artId);
       setAverageRateState(correctArt.averageRating);

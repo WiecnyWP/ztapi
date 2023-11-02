@@ -15,7 +15,7 @@ export const Search = () => {
   const { auth } = useAuth();
   const [userId, setUserId] = useState(null);
   const { data, loading } = useFetch({
-    url: "http://localhost:8080/api/art/getAllWithImage",
+    url: "http://localhost:8080/api/art/WithImage",
   });
   useEffect(() => {
     if (!auth) {
@@ -24,7 +24,7 @@ export const Search = () => {
       setAuthToken(auth);
       axios({
         method: "get",
-        url: "http://localhost:8080/api/users/getCurrentUserInfo",
+        url: "http://localhost:8080/api/users/CurrentUserInfo",
       })
         .then(function (response) {
           setUserId(response.data.userData.id);

@@ -14,26 +14,22 @@ import java.util.Collection;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/art")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ArtController {
 
     private final ArtService artService;
 
-    @GetMapping("/getAll")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/")
     public ResponseEntity<Collection<Art>> getAll() {
         return ResponseEntity.ok(artService.getAll());
     }
 
-    @PostMapping("/add")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/")
     public ResponseEntity<ArtWithImageResponseDTO> addArt(@RequestBody ArtWithImageSaveDTO art) throws IOException {
         ArtWithImageResponseDTO addedArt = artService.add(art);
         return ResponseEntity.ok(addedArt);
     }
 
-    @GetMapping("/getAllWithImage")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/WithImage")
     public ResponseEntity<Collection<ArtWithImageResponseDTO>> getAllWithImage() {
         return ResponseEntity.ok(artService.getAllArtsWithImage());
     }

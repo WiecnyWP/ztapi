@@ -15,19 +15,16 @@ import java.util.Collection;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/getAll")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/")
     public ResponseEntity<Collection<User>> getAll() {
         return ResponseEntity.ok(userService.getAll());
     }
 
-    @GetMapping("/getCurrentUserInfo")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/CurrentUserInfo")
     public ResponseEntity<User> getCurrentLoggedUser(Authentication authentication) {
         return ResponseEntity.ok(userService.getUserByName(authentication.getName()));
     }

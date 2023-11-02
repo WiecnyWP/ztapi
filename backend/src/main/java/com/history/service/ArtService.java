@@ -36,7 +36,6 @@ public class ArtService {
                 .artType(artDto.getArtType())
                 .city(artDto.getCity())
                 .build();
-//        Art savedArt = artRepository.save(art);
 
         byte[] imageBytes = artDto.getImage();
         String fileName = artDto.getArtName();

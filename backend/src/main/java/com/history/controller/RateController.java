@@ -14,14 +14,12 @@ import java.util.Collection;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/rate")
-@CrossOrigin(origins = "http://localhost:3000")
 public class RateController {
 
     private final RateService rateService;
 
 
-    @PostMapping("/add")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/")
     public ResponseEntity<Rate> addCity(@RequestBody RateDTO rateDTO) {
         Rate rate = rateService.add(rateDTO);
         return ResponseEntity.ok(rate);

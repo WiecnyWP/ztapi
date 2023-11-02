@@ -15,19 +15,16 @@ import java.util.Collection;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/city")
-@CrossOrigin(origins = "http://localhost:3000")
 public class CityController {
 
     private final CityService cityService;
 
-    @GetMapping("/getAll")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/")
     public ResponseEntity<Collection<City>> getAll() {
         return ResponseEntity.ok(cityService.getAll());
     }
 
-    @PostMapping("/add")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/")
     public ResponseEntity<City> addCity(@RequestBody City city) {
         City addedCity = cityService.add(city);
         return ResponseEntity.ok(addedCity);

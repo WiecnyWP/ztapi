@@ -21,7 +21,7 @@ export const Add = () => {
       setAuthToken(auth);
       axios({
         method: "get",
-        url: "http://localhost:8080/api/users/getCurrentUserInfo",
+        url: "http://localhost:8080/api/users/CurrentUserInfo",
       })
         .then(function (response) {
           setIsAdmin(response.data.userRole === "ADMIN");
@@ -32,7 +32,7 @@ export const Add = () => {
 
       axios({
         method: "get",
-        url: "http://localhost:8080/api/city/getAll",
+        url: "http://localhost:8080/api/city/",
       })
         .then((res) => {
           setCities(res.data);
@@ -46,7 +46,7 @@ export const Add = () => {
   const refreshCities = () => {
     axios({
       method: "get",
-      url: "http://localhost:8080/api/city/getAll",
+      url: "http://localhost:8080/api/city/",
     })
       .then((res) => {
         setCities(res.data);
@@ -81,7 +81,7 @@ const AdminContent = ({ cities, auth, setAuthToken, refreshCities }) => {
   const submitCityForm = (val) => {
     axios({
       method: "post",
-      url: "http://localhost:8080/api/city/add",
+      url: "http://localhost:8080/api/city/",
       data: { cityName: val.city },
     })
       .then(function () {
@@ -98,7 +98,7 @@ const AdminContent = ({ cities, auth, setAuthToken, refreshCities }) => {
     setAuthToken(auth);
     axios({
       method: "post",
-      url: "http://localhost:8080/api/art/add",
+      url: "http://localhost:8080/api/art/",
       data: val,
     })
       .then(function (response) {

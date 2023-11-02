@@ -14,6 +14,14 @@ People from all over the world can search works of art such as paintings, sculpt
 
 ![Alt text](/frontend/src/assets/website3.png)
 
+## Mobile presentation
+
+![Alt text](/frontend/src/assets/mobile2.png)
+
+![Alt text](/frontend/src/assets/mobile.png)
+
+![Alt text](/frontend/src/assets/mobile3.png)
+
 ## Tech stack
 
 - React
@@ -24,6 +32,10 @@ People from all over the world can search works of art such as paintings, sculpt
 ## ERD
 
 ![Alt text](/frontend/src/assets/erd.png)
+
+## Swagger documentation
+
+![Alt text](/frontend/src/assets/swagger.png)
 
 ## PostgreSQL
 
